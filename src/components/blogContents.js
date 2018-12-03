@@ -1,21 +1,28 @@
 import React, { Component } from 'react';
 
 class blogContents extends Component {
+ 
+    constructor(props) {
+        super(props)
+    }
+
     render() {
         return (
-            <div class="row">
-                <div class="col col-xs-12">
-                    <div class="blog-grids">
-                        <div class="grid">
-                            <div class="entry-body">
-                                <h3><a href="#">My First Blog Post</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod</p>
-                                <div class="read-more-date">
-                                    <a href="#">Read More..</a>
+            <div className="row">
+                <div className="col col-xs-12">
+                    {this.props.blogData.map(blog=>
+                    <div className="blog-grids">
+                        <div className="grid">
+                            <div className="entry-body">
+                                <h3>{blog.title}</h3>
+                                <p>{blog.content}</p>
+                                <div className="read-more-date">
+                                    <a href={blog.url}>Read More..</a>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    )}
                 </div>
             </div>
         );
